@@ -1,4 +1,7 @@
+import React from 'react';
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Routes from './src/components/Routes';
 
-AppRegistry.registerComponent('ReactNativeChat', () => App);
+const app = () => <Routes />;
+
+AppRegistry.registerComponent('ReactNativeChat', () => app);
