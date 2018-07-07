@@ -1,24 +1,33 @@
 import React from 'react';
 import {
     Router,
-    Stack,
     Scene
 } from 'react-native-router-flux';
 
-import { ThemeContext } from './Theme';
+import { ThemeContext } from './../contexts/Theme';
+import { UserContext } from './../contexts/UserContext';
 
 import Login from './../scenes/login/Login';
 import NovoUsuario from './../scenes/novoUsuario/NovoUsuario';
 
-export default props => (
+export default () => (
     <ThemeContext.Consumer>
         {theme =>
-            <Router>
-                <Scene key="root" {...theme.router} >
-                    <Scene key='sceneLogin' component={Login} title="Login" init />
-                    <Scene key='sceneCadastro' component={NovoUsuario} title="Cadastro" />
-                </Scene>
-            </Router>
+            <UserContext.Consumer>
+                {user =>
+                    <Router>
+                        <Scene key="root" {...theme.router} >
+                            <Scene 
+                                key='sceneLogin' component={Login} title="Login" 
+                                theme={theme} user={user} init
+                            />
+                            <Scene 
+                                key='sceneCadastro' component={NovoUsuario} title="Cadastro" 
+                                theme={theme} 
+                            />
+                        </Scene>
+                    </Router>}
+            </UserContext.Consumer>
         }
     </ThemeContext.Consumer>
 );
