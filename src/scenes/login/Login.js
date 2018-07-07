@@ -5,7 +5,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user,
+            userContext: props.userContext,
             theme: props.theme
         };
     }

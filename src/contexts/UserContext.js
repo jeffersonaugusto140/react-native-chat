@@ -2,34 +2,46 @@ import React, { Component } from 'react';
 
 const userDefault = {
     name: 'Teste',
-    email: '',
+    email: 'emailteste',
     password: '',
-    setName: (newName) => {
-        console.log(newName);
-        console.log(this.name);
-        this.name = newName;
-        console.log(this.name);
-    }
 };
 
 export const UserContext = React.createContext(userDefault);
 
-export default class UserContextManager extends Component {
+export class UserContextManager extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            user: userDefault
+
+        this.setEmail = (email) => {
+            this.setState(state => {
+                state.user.email = email;
+                return state;
+            });
         };
+
+        this.state = {
+            user: userDefault,
+            setEmail: this.setEmail
+        };
+
+        //this.setName('outro 2');
     }
+
+    // setName(name) {
+    //     this.setState(state => {
+    //         state.user.name = name;
+    //         return state;
+    //     });
+    //     // if (this.state) {
+    //     //     this.state.currentUser.name = name;
+    //     //     this.setState(this.state);
+    //     // }
+    // }
 
     render() {
         return (
-            <UserContext.Provider value={this.state.user}>
-                <UserContext.Consumer>
-
-                    {this.props.child}
-
-                </UserContext.Consumer>
+            <UserContext.Provider value={this.state} setName={this.setEmail}>
+                {this.props.children}
             </UserContext.Provider>
         );
     }
