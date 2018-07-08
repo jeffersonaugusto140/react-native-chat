@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import { UserContext } from './../../contexts/UserContext';
 import LoginComponent from './LoginComponent';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userContext: props.userContext,
             theme: props.theme
         };
     }
 
     render() {
         return (
-            <LoginComponent {...this.state} />
+            <UserContext.Consumer>
+                {user => <LoginComponent {...this.state} user={user} />}
+            </UserContext.Consumer>
         );
     }
 }
