@@ -15,10 +15,12 @@ export default ({ theme }) => (
                     <TextInput
                         style={theme.input} value={user.email} placeholder='E-mail'
                         onChangeText={(text) => user.setEmail(text)}
+                        keyboardType="email-address"
                     />
                     <TextInput
                         style={theme.input} value={user.password} placeholder='Senha'
                         onChangeText={(text) => user.setPassword(text)}
+                        secureTextEntry
                     />
                 </View>}
         </UserContext.Consumer>
