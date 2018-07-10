@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { UserContext } from './../../contexts/UserContext';
 import LoginComponent from './LoginComponent';
 
+const config = require('./../../../global.config.json').development;
+
 export default class Login extends Component {
     constructor(props) {
         super(props);

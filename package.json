@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "encrypt": "encrypt global.config.json global.config.json.cast5",
+    "decrypt": "decrypt global.config.json.cast5 global.config.json"
   },
   "dependencies": {
     "config-leaf": "^0.3.0",

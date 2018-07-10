@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { UserProvider } from './../../contexts/UserContext';
+import { UserContext } from './../../contexts/UserContext';
 import NovoUsuarioComponent from './NovoUsuarioComponent';
 
 export default class NovoUsuario extends Component {
@@ -12,7 +12,9 @@ export default class NovoUsuario extends Component {
 
     render() {
         return (
-            <NovoUsuarioComponent {...this.state} />
+            <UserContext.Consumer>
+                {user => <NovoUsuarioComponent {...this.state} user={user} />}
+            </UserContext.Consumer>
         );
     }
 }
