@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Button } from 'react-native';
 
-export default ({ theme, user }) => (
+export default ({ theme, add, user }) => (
     <View style={{ flex: 1, padding: 10 }}>
         <View style={{ flex: 4, justifyContent: 'center' }}>
             <TextInput
@@ -20,7 +20,7 @@ export default ({ theme, user }) => (
             />
         </View>
         <View style={{ flex: 1 }}>
-            <Button title="Cadastrar" color="#115E54" onPress={() => false} />
+            <Button title="Cadastrar" color="#115E54" onPress={() => add(user)} />
         </View>
     </View>
 );

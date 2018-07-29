@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ({ theme, user }) => (
+export default ({ login, theme, user }) => (
     <ImageBackground style={{ flex: 1, width: null }} source={bg}>
         <View style={{ flex: 1, padding: 10 }}>
             <View style={styles.title}>
@@ -58,7 +58,7 @@ export default ({ theme, user }) => (
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 2 }}>
-                <Button title="Acessar" color={theme.buttonColor} onPress={() => false} />
+                <Button title="Acessar" color={theme.buttonColor} onPress={() => login(user)} />
             </View>
         </View>
     </ImageBackground>

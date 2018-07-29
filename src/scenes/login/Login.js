@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import { Actions } from 'react-native-router-flux';
 import { UserContext } from './../../contexts/UserContext';
 import LoginComponent from './LoginComponent';
-
-const config = require('./../../../global.config.json').development;
+import { AppConfig } from './../../common/AppConfig';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: props.theme
+            theme: props.theme,
+            login: (user) => {
+                alert(JSON.stringify(AppConfig));
+                Actions.sceneHome();
+            }
         };
     }
 

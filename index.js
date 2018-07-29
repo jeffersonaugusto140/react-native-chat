@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
+// TODO ocorre erro ao importar firebase import firebase from 'firebase';
 import Routes from './src/components/Routes';
+import { AppConfig } from './src/common/AppConfig';
 
-const app = () => <Routes />;
+const firebase = require('firebase');
 
-AppRegistry.registerComponent('ReactNativeChat', () => app);
+class App extends Component {
+    componentWillMount() {
+        firebase.initializeApp(AppConfig.firebase);
+    }
+
+    render() {
+        return (<Routes firebase={firebase} />);
+    }
+}
+
+AppRegistry.registerComponent('ReactNativeChat', () => App);
