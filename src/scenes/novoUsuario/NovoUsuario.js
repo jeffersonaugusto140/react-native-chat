@@ -17,8 +17,7 @@ export default class NovoUsuario extends Component {
                     props.firebase.auth()
                         .createUserWithEmailAndPassword(user.email, user.password)
                         .then(() => {
-                            Alert.alert('New user', 'A new user has been added');
-                            Actions.sceneHome();
+                            Actions.sceneWelcome();
                         })
                         .catch(err => {
                             Alert.alert('New user', err.message);
